@@ -1,0 +1,14 @@
+%p Welcome to the customer payment scheduler. Begin by looking up a customer. Once their records are retrieved, you'll see what the last 4 digits of their default card is and be able to setup a payment.
+
+%h4 Lookup a customer
+
+%form{action: "/lookup"}
+  %label Email
+  %input{type: "text", name: "email"}
+  %br
+  %br
+  %input.btn{type: "submit", value: "Lookup"}
+
+%br
+%br
+%a{href: "/index"} See all scheduled payments

@@ -1,0 +1,33 @@
+-if @customer
+  %h2 Customer Found
+  %h3=@customer.email
+  %form{action: "/setup_payment", method: :post}
+    %h4 Will be charged to card ending in:
+    =@customer.sources.select{|source| source.id == @customer.default_source}.first.last4
+    %br
+    %br
+    %label Choose date of charge
+    %input{type: "date", name: "date"}
+    %br
+    %br
+    %label How much is the payment for, in round dollars? $10 should be input as, "10"
+    %input{type: "number", name: "payment_amount"}
+    %br
+    %br
+    %label What is the payment for? The customer will see this data. Be specific.
+    %input{type: "text", name: "payment_for"}
+    %br
+    %br
+    %label What currency will it be in?
+    USD
+    %input{type: "radio", name: "currency", value: "usd"}
+    EUR
+    %input{type: "radio", name: "currency", value: "eur"}
+    %br
+    %br
+    %input{type: "hidden", name: "customer_email", value: @customer.email}
+    %input{type: "hidden", name: "customer_id", value: @customer.id}
+    %input{type: "submit", value: "Setup Payment"}
+-else
+  Sorry, there's no customer in the system with that e-mail.
+  %a{href: "/"} Back to home

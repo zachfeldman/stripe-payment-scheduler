@@ -1,0 +1,29 @@
+%table.table
+  %thead
+    %tr
+      %td
+        Email
+      %td
+        Payment for
+      %td
+        Amount
+      %td
+        Date
+      %td
+        Delete
+  %tbody
+    -@payments.each do |payment|
+      %tr
+        %td
+          =payment.customer_email
+        %td
+          =payment.for
+        %td
+          $
+          =payment.amount_in_cents/100
+        %td
+          =payment.date_to_run.strftime("%A, %b %d")
+        %td
+          %a{href: "/delete/#{payment.id}"} X
+
+=will_paginate @payments

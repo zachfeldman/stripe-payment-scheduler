@@ -1,0 +1,16 @@
+!!!
+%html
+  %head
+    %title Stripe Customer Payment Scheduler
+    %link{href: "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css", rel: "stylesheet", type: "text/css"}
+  %body
+    -if flash[:notice]
+      %h3
+        =flash[:notice]
+    -if flash[:alert]
+      %h3
+        =flash[:alert]
+    .container
+      %a{href: "/"}
+        %h1 Stripe Customer Payment Scheduler
+      =yield

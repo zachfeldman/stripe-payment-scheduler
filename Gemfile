@@ -1,0 +1,12 @@
+source 'https://rubygems.org'
+
+gem 'stripe'
+gem 'sinatra'
+gem 'sinatra-activerecord'
+gem 'haml'
+gem 'pg'
+gem 'activerecord'
+gem 'rake'
+gem 'will_paginate'
+gem 'rack-flash3'
+gem 'mandrill-api'
